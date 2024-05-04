@@ -10,11 +10,19 @@ function Buttons(): JSX.Element {
   return (
     <>
       <div className="buttonContainer text-center customRow">
-        <button type="button" className="btn btn-default counterBtn white decrement">
+        <button
+          type="button"
+          className="btn btn-default counterBtn white decrement"
+          aria-label="Decrement Button"
+        >
           <img src={minusIconWhite} className="img-fluid center-block"
           alt="Decrement" title="Decrement"/>
         </button>
-        <button type="button" className="btn btn-default counterBtn white increment">
+        <button
+          type="button"
+          className="btn btn-default counterBtn white increment"
+          aria-label="Increment Button"
+        >
           <img src={plusIconWhite} className="img-fluid center-block"
           alt="Increment" title="Increment"/>
         </button>
