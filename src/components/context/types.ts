@@ -12,6 +12,7 @@ export interface SoundContextInt {
 }
 
 export interface ContextWrapperProps {
+  hasSound?: boolean;
   children: JSX.Element | JSX.Element[];
 }
 

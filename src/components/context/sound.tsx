@@ -11,7 +11,11 @@ export const SoundContext = createContext<SoundContextInt | null>(null);
 /* component wrapper */
 function ContextWrapper(props: ContextWrapperProps) {
   const { children } = props;
-  const { sound, soundOn, soundOff } = useSoundHook();
+  let { sound, soundOn, soundOff } = useSoundHook();
+
+  if (props.hasSound !== undefined) {
+    sound = props.hasSound;
+  }
 
   return (
     <SoundContext.Provider value={{sound, soundOff, soundOn}}>

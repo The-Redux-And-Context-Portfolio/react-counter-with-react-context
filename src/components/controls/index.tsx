@@ -1,5 +1,5 @@
 /* node modules */
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 /* app imports */
 import resetIconWhite from "../../assets/icons/reset-icon-white.svg";
@@ -26,13 +26,20 @@ function Controls(): JSX.Element {
   function handleOnToggleSound() {
     if (sound) {
       soundOff();
-      setSoundIcon(() => soundOffIcon);
     }
     else {
       soundOn();
-      setSoundIcon(() => soundOnIcon);
     }
   }
+
+  useEffect(() => {
+    if (sound) {
+      setSoundIcon(() => soundOnIcon);
+    }
+    else {
+      setSoundIcon(() => soundOffIcon);
+    }
+  }, [sound]);
 
   return (
     <>
@@ -43,7 +50,7 @@ function Controls(): JSX.Element {
           aria-label="Sound Button"
           onClick={handleOnToggleSound}
         >
-          <img {...soundIcon} />
+          <img {...soundIcon} data-testid="soundIcon"/>
         </button>
         <button
           type="button"
