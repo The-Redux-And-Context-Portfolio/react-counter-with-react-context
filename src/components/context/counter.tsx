@@ -5,7 +5,10 @@ import React, { createContext } from "react";
 import useCounterHook from "../hooks/use-counter";
 import { CounterContextInt, ContextWrapperProps } from "./types";
 
-/* context */
+/**
+  * counter context will control aspects related to the counter value as well as functionalities for updating 
+  * the values based on user interactions.
+  */
 export const CounterContext = createContext<CounterContextInt | null>(null);
 
 /* component wrapper */
