@@ -16,7 +16,7 @@ jest.mock("../components/utils/reset-sound", () => {
   return jest.fn();
 });
 
-/* t-suite */
+/* t-suite - helps test all the functionalities for the app. this is from the top most parent component */
 describe("Functional Test Suite", () => {
   beforeEach(() => {
     jest.clearAllMocks();
