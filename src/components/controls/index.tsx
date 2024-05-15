@@ -14,15 +14,22 @@ import resetSound from "../utils/reset-sound";
 
 /* component */
 function Controls(): JSX.Element {
+  /** subscribing to the counter and sound context, and updating required component state. also providing required 
+    * functionalities
+    */
   const { counterReset } = useContext(CounterContext) as CounterContextInt;
   const { sound, soundOn, soundOff } = useContext(SoundContext) as SoundContextInt;
+
+  /* local state */
   const [soundIcon, setSoundIcon] = useState<Record<string, any>>(sound ? soundOnIcon : soundOffIcon);
 
+  /* event handler */
   function handleOnReset() {
     counterReset();
     sound && resetSound();
   }
 
+  /* event handler */
   function handleOnToggleSound() {
     if (sound) {
       soundOff();
@@ -32,6 +39,7 @@ function Controls(): JSX.Element {
     }
   }
 
+  /* update after state change for the 'sound' variable */
   useEffect(() => {
     if (sound) {
       setSoundIcon(() => soundOnIcon);
@@ -44,6 +52,7 @@ function Controls(): JSX.Element {
   return (
     <>
       <div className="controls customRow">
+        {/* Sound Button */}
         <button
           type="button"
           className="btn btn-default"
@@ -52,6 +61,8 @@ function Controls(): JSX.Element {
         >
           <img {...soundIcon} data-testid="soundIcon"/>
         </button>
+
+        {/* Counter Reset Button */}
         <button
           type="button"
           className="btn btn-default"
