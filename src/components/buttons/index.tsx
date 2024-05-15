@@ -11,14 +11,17 @@ import clickSound from "../utils/click-sound";
 
 /* component */
 function Buttons(): JSX.Element {
+  /* picking up state updates and required functionalities from the contexts that were created */
   const { counterDecrement, counterIncrement } = useContext(CounterContext) as CounterContextInt;
   const { sound } = useContext(SoundContext) as SoundContextInt;
 
+  /* event handler */
   function handleOnIncrement() {
     counterIncrement();
     sound && clickSound();
   }
 
+  /* event handler */
   function handleOnDecrement() {
     counterDecrement();
     sound && clickSound();
@@ -27,6 +30,7 @@ function Buttons(): JSX.Element {
   return (
     <>
       <div className="buttonContainer text-center customRow">
+        {/* Decrement Button */}
         <button
           type="button"
           className="btn btn-default counterBtn white decrement"
@@ -36,6 +40,8 @@ function Buttons(): JSX.Element {
           <img src={minusIconWhite} className="img-fluid center-block"
           alt="Decrement" title="Decrement"/>
         </button>
+        
+        {/* Increment Button */}
         <button
           type="button"
           className="btn btn-default counterBtn white increment"
