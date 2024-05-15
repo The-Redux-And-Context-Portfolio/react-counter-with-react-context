@@ -5,7 +5,9 @@ import React, { createContext } from "react";
 import useSoundHook from "../hooks/use-sound";
 import { SoundContextInt, ContextWrapperProps } from "./types";
 
-/* context */
+/**
+  * sound context - will help control aspects related to activating sounds based on user interactions
+  */
 export const SoundContext = createContext<SoundContextInt | null>(null);
 
 /* component wrapper */
